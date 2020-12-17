@@ -1,13 +1,15 @@
 {
-  "name": "vanilla",
+  "name": "Sample-JS-Web-Basic",
   "version": "1.0.0",
-  "description": "JavaScript example starter project",
+  "description": "Sendbird JS sample codesandbox project",
   "main": "index.html",
   "scripts": {
     "start": "parcel index.html --open",
     "build": "parcel build index.html"
   },
-  "dependencies": {},
+  "dependencies": {
+    "sendbird": "^3.0.111"
+  },
   "devDependencies": {
     "@babel/core": "7.2.0",
     "parcel-bundler": "^1.6.1"
