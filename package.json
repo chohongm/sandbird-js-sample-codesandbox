@@ -8,14 +8,12 @@
     "build": "parcel build index.html"
   },
   "dependencies": {
+    "moment": "^2.22.1",
     "sendbird": "^3.0.111"
   },
   "devDependencies": {
     "@babel/core": "7.2.0",
     "parcel-bundler": "^1.6.1"
   },
-  "keywords": [
-    "javascript",
-    "starter"
-  ]
+  "keywords": ["javascript", "starter"]
 }
