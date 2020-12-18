@@ -1,6 +1,5 @@
 import styles from "../scss/list.scss";
 import { createDivEl, isScrollBottom } from "../utils";
-import { OpenChannelSearchBox } from "./OpenChannelSearchBox";
 
 let instance = null;
 
@@ -36,7 +35,6 @@ class List {
     listTopButton.appendChild(listTopButtonExit);
     listTopButtonExit.addEventListener("click", () => {
       this.searchKeyword = "";
-      OpenChannelSearchBox.clearText();
       const listContent = document.querySelector(`.${styles["list-content"]}`);
       if (this.closeEventHandler) {
         this.closeEventHandler();
@@ -45,11 +43,6 @@ class List {
       root.parentElement.removeChild(this.element);
     });
     this.buttonRootElement = listTopButton;
-
-    if (this.createSearchBox) {
-      const searchBox = new OpenChannelSearchBox();
-      listBody.appendChild(searchBox.element);
-    }
 
     const hr = createDivEl({ className: styles["list-hr"] });
     listBody.appendChild(hr);

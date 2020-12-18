@@ -156,7 +156,8 @@ class LeftListItem {
     if (items && items.length > 0) {
       Array.prototype.slice.call(items).forEach((targetItemEl) => {
         const originTs = parseInt(
-          getDataInElement(targetItemEl, KEY_MESSAGE_LAST_TIME)
+          getDataInElement(targetItemEl, KEY_MESSAGE_LAST_TIME),
+          10
         );
         if (originTs) {
           targetItemEl.innerHTML = LeftListItem.getTimeFromNow(originTs);

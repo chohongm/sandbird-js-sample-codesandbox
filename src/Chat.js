@@ -21,6 +21,8 @@ class Chat {
     this.element = null;
     this.top = null;
     this.emptyElement = this._createEmptyElement();
+    console.log("# " + this.emptyElement);
+
     this.render();
     instance = this;
   }
