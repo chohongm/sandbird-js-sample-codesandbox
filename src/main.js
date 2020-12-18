@@ -13,7 +13,7 @@ const sb = new SendBirdAction();
 const chatLeft = new ChatLeftMenu();
 const chat = new Chat();
 
-// Spinner.start(body);
+Spinner.start(body);
 
 const createConnectionHandler = () => {
   const connectionManager = new SendBirdConnection();
@@ -84,8 +84,10 @@ const updateGroupChannelTime = () => {
   }, UPDATE_INTERVAL_TIME);
 };
 
-document.addEventListener("DOMContentLoaded", () => {
+const connectToSendbird = () => {
   const { userid, nickname } = getVariableFromUrl();
+  console.log("#userid ", userid);
+
   if (isEmpty(userid) || isEmpty(nickname)) {
     redirectToIndex("UserID and Nickname must be required.");
   }
@@ -101,4 +103,14 @@ document.addEventListener("DOMContentLoaded", () => {
     .catch(() => {
       redirectToIndex("SendBird connection failed.");
     });
-});
+  Spinner.remove();
+};
+
+if (document.readyState === "loading") {
+  // Loading hasn't finished yet
+  document.addEventListener("DOMContentLoaded", connectToSendbird);
+} else {
+  // `DOMContentLoaded` has already fired
+  console.log("DOMContentLoaded Already fired");
+  connectToSendbird();
+}
